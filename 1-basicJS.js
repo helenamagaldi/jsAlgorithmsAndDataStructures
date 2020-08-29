@@ -346,3 +346,244 @@ myArray.push(["dog", 3])
 var myArray = [["John", 23], ["cat", 2]];
 
 var removedFromMyArray = myArray.pop()
+
+
+// Manipulate Arrays With shift()
+// pop() always removes the last element of an array. What if you want to remove the first?
+
+// That's where .shift() comes in. It works just like .pop(), except it removes the first element instead of the last.
+
+// Example:
+
+// var ourArray = ["Stimpson", "J", ["cat"]];
+// var removedFromOurArray = ourArray.shift();
+// // removedFromOurArray now equals "Stimpson" and ourArray now equals ["J", ["cat"]].
+// Use the .shift() function to remove the first item from myArray, assigning the "shifted off" value to removedFromMyArray.
+
+var myArray = [["John", 23], ["dog", 3]];
+var removedFromMyArray = myArray.shift()
+
+// Manipulate Arrays With unshift()
+// Not only can you shift elements off of the beginning of an array, you can also unshift elements to the beginning of an array i.e. add elements in front of the array.
+
+// .unshift() works exactly like .push(), but instead of adding the element at the end of the array, unshift() adds the element at the beginning of the array.
+
+// Example:
+
+// var ourArray = ["Stimpson", "J", "cat"];
+// ourArray.shift(); // ourArray now equals ["J", "cat"]
+// ourArray.unshift("Happy");
+// // ourArray now equals ["Happy", "J", "cat"]
+// Add ["Paul",35] to the beginning of the myArray variable using unshift().
+
+var myArray = [["John", 23], ["dog", 3]];
+myArray.shift();
+myArray.unshift(["Paul", 35])
+
+// Shopping List
+// Create a shopping list in the variable myList. The list should be a multi-dimensional array containing several sub-arrays.
+
+// The first element in each sub-array should contain a string with the name of the item. The second element should be a number representing the quantity i.e.
+
+// ["Chocolate Bar", 15]
+
+// There should be at least 5 sub-arrays in the list.
+
+var myList = [["tapioca", 2],["chocolate", 24], ["danoninho", 6], ["eggs", 12], ["ham", 2], ["chilli peppers", 3]]
+
+
+// Write Reusable JavaScript with Functions
+// In JavaScript, we can divide up our code into reusable parts called functions.
+
+// Here's an example of a function:
+
+// function functionName() {
+//   console.log("Hello World");
+// }
+// You can call or invoke this function by using its name followed by parentheses, like this: functionName(); Each time the function is called it will print out the message "Hello World" on the dev console. All of the code between the curly braces will be executed every time the function is called.
+
+// Create a function called reusableFunction which prints "Hi World" to the dev console.
+// Call the function.
+
+function reusableFunction() {
+    console.log("Hi World")
+  }
+  
+  reusableFunction()
+
+
+//   Passing Values to Functions with Arguments
+//   Parameters are variables that act as placeholders for the values that are to be input to a function when it is called. When a function is defined, it is typically defined along with one or more parameters. The actual values that are input (or "passed") into a function when it is called are known as arguments.
+  
+//   Here is a function with two parameters, param1 and param2:
+  
+//   function testFun(param1, param2) {
+//     console.log(param1, param2);
+//   }
+//   Then we can call testFun: testFun("Hello", "World"); We have passed two arguments, "Hello" and "World". Inside the function, param1 will equal "Hello" and param2 will equal "World". Note that you could call testFun again with different arguments and the parameters would take on the value of the new arguments.
+  
+//   Create a function called functionWithArgs that accepts two arguments and outputs their sum to the dev console.
+//   Call the function with two numbers as arguments.
+
+function functionWithArgs(arg1, arg2) {
+    console.log( arg1 + arg2 )
+  }
+  
+  functionWithArgs(2, 4)
+
+
+//   Global Scope and Functions
+// In JavaScript, scope refers to the visibility of variables. Variables which are defined outside of a function block have Global scope. This means, they can be seen everywhere in your JavaScript code.
+
+// Variables which are used without the var keyword are automatically created in the global scope. This can create unintended consequences elsewhere in your code or when running a function again. You should always declare your variables with var.
+
+// Using var, declare a global variable named myGlobal outside of any function. Initialize it with a value of 10.
+
+// Inside function fun1, assign 5 to oopsGlobal without using the var keyword.
+
+var myGlobal = 10
+
+function fun1() {
+  oopsGlobal = 5
+}
+
+function fun2() {
+  var output = "";
+  if (typeof myGlobal != "undefined") {
+    output += "myGlobal: " + myGlobal;
+  }
+  if (typeof oopsGlobal != "undefined") {
+    output += " oopsGlobal: " + oopsGlobal;
+  }
+  console.log(output);
+}
+
+// Local Scope and Functions
+// Variables which are declared within a function, as well as the function parameters have local scope. That means, they are only visible within that function.
+
+// Here is a function myTest with a local variable called loc.
+
+// function myTest() {
+//   var loc = "foo";
+//   console.log(loc);
+// }
+// myTest(); // logs "foo"
+// console.log(loc); // loc is not defined
+// loc is not defined outside of the function.
+
+// The editor has two console.logs to help you see what is happening. Check the console as you code to see how it changes. Declare a local variable myVar inside myLocalScope and run the tests.
+
+// Note: The console will still have 'ReferenceError: myVar is not defined', but this will not cause the tests to fail.
+
+function myLocalScope() {
+    'use strict';
+  
+    var myVar = "string"
+    console.log('inside myLocalScope', myVar);
+  }
+  myLocalScope();
+  
+
+  console.log('outside myLocalScope', myVar);
+  
+//   Global vs. Local Scope in Functions
+// It is possible to have both local and global variables with the same name. When you do this, the local variable takes precedence over the global variable.
+
+// In this example:
+
+// var someVar = "Hat";
+// function myFun() {
+//   var someVar = "Head";
+//   return someVar;
+// }
+// The function myFun will return "Head" because the local version of the variable is present.
+
+// Add a local variable to myOutfit function to override the value of outerWear with "sweater".
+
+var outerWear = "T-Shirt";
+
+function myOutfit() {
+  var outerWear = "sweater"
+
+  return outerWear;
+}
+
+myOutfit();
+
+
+// Return a Value from a Function with Return
+// We can pass values into a function with arguments. You can use a return statement to send a value back out of a function.
+
+// Example
+
+// function plusThree(num) {
+//   return num + 3;
+// }
+// var answer = plusThree(5); // 8
+// plusThree takes an argument for num and returns a value equal to num + 3.
+
+// Create a function timesFive that accepts one argument, multiplies it by 5, and returns the new value. See the last line in the editor for an example of how you can test your timesFive function.
+
+function timesFive(num) {
+    return num * 5
+  }
+  
+  var answer = timesFive(3)
+
+//   Understanding Undefined Value returned from a Function
+// A function can include the return statement but it does not have to. In the case that the function doesn't have a return statement, when you call it, the function processes the inner code but the returned value is undefined.
+
+// Example
+
+// var sum = 0;
+// function addSum(num) {
+//   sum = sum + num;
+// }
+// addSum(3); // sum will be modified but returned value is undefined
+// addSum is a function without a return statement. The function will change the global sum variable but the returned value of the function is undefined.
+
+// Create a function addFive without any arguments. This function adds 5 to the sum variable, but its returned value is undefined.
+
+var sum = 0;
+
+function addThree() {
+  sum = sum + 3;
+}
+
+function addFive() {
+  sum = sum + 5
+}
+
+addThree();
+addFive();
+
+
+// Assignment with a Returned Value
+// If you'll recall from our discussion of Storing Values with the Assignment Operator, everything to the right of the equal sign is resolved before the value is assigned. This means we can take the return value of a function and assign it to a variable.
+
+// Assume we have pre-defined a function sum which adds two numbers together, then:
+
+// ourSum = sum(5, 12);
+
+// will call sum function, which returns a value of 17 and assigns it to ourSum variable.
+
+// Call the processArg function with an argument of 7 and assign its return value to the variable processed.
+
+var processed = 0;
+
+function processArg(num) {
+  return (num + 3) / 5;
+}
+
+processArg(7)
+processed = processArg(7)
+
+// Stand in Line
+// In Computer Science a queue is an abstract Data Structure where items are kept in order. New items can be added at the back of the queue and old items are taken off from the front of the queue.
+
+// Write a function nextInLine which takes an array (arr) and a number (item) as arguments.
+
+// Add the number to the end of the array, then remove the first element of the array.
+
+// The nextInLine function should then Greturn the element that was removed.
+
