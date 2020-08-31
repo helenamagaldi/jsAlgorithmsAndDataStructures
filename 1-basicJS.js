@@ -758,3 +758,421 @@ function testNotEqual(val) {
 //   3 !== '3'  // true
 //   4 !==  3   // true
 //   Add the strict inequality operator to the if statement so the function will return "Not Equal" when val is not strictly equal to 17
+
+function testStrictNotEqual(val) {
+    if (val !== 17) { 
+      return "Not Equal";
+    }
+    return "Equal";
+  }
+  
+  testStrictNotEqual(10);
+
+//   Comparison with the Greater Than OperatorPassed
+// The greater than operator (>) compares the values of two numbers. If the number to the left is greater than the number to the right, it returns true. Otherwise, it returns false.
+
+// Like the equality operator, greater than operator will convert data types of values while comparing.
+
+// Examples
+
+// 5   >  3   // true
+// 7   > '3'  // true
+// 2   >  3   // false
+// '1' >  9   // false
+// Add the greater than operator to the indicated lines so that the return statements make sense.
+  
+
+function testGreaterThan(val) {
+    if (val > 100) {  
+      return "Over 100";
+    }
+  
+    if (val > 10) {  
+      return "Over 10";
+    }
+  
+    return "10 or Under";
+  }
+  
+  testGreaterThan(10);
+  
+//   Comparison with the Greater Than Or Equal To Operator
+// The greater than or equal to operator (>=) compares the values of two numbers. If the number to the left is greater than or equal to the number to the right, it returns true. Otherwise, it returns false.
+
+// Like the equality operator, greater than or equal to operator will convert data types while comparing.
+
+// Examples
+
+// 6   >=  6   // true
+// 7   >= '3'  // true
+// 2   >=  3   // false
+// '7' >=  9   // false
+// Add the greater than or equal to operator to the indicated lines so that the return statements make sense.
+
+function testGreaterOrEqual(val) {
+    if (val >= 20) {  
+      return "20 or Over";
+    }
+  
+    if (val >= 10) {  
+      return "10 or Over";
+    }
+  
+    return "Less than 10";
+  }
+  
+  testGreaterOrEqual(10);
+
+//   Comparison with the Less Than Operator
+// The less than operator (<) compares the values of two numbers. If the number to the left is less than the number to the right, it returns true. Otherwise, it returns false. Like the equality operator, less than operator converts data types while comparing.
+
+// Examples
+
+// 2   < 5  // true
+// '3' < 7  // true
+// 5   < 5  // false
+// 3   < 2  // false
+// '8' < 4  // false
+// Add the less than operator to the indicated lines so that the return statements make sense.
+
+function testLessThan(val) {
+    if (val < 25) { 
+      return "Under 25";
+    }
+  
+    if (val < 55) {  
+      return "Under 55";
+    }
+  
+    return "55 or Over";
+  }
+  
+  testLessThan(10);
+  
+//   Comparison with the Less Than Or Equal To Operator
+// The less than or equal to operator (<=) compares the values of two numbers. If the number to the left is less than or equal to the number to the right, it returns true. If the number on the left is greater than the number on the right, it returns false. Like the equality operator, less than or equal to converts data types.
+
+// Examples
+
+// 4   <= 5  // true
+// '7' <= 7  // true
+// 5   <= 5  // true
+// 3   <= 2  // false
+// '8' <= 4  // false
+// Add the less than or equal to operator to the indicated lines so that the return statements make sense.
+
+function testLessOrEqual(val) {
+    if (val <= 12) {  
+      return "Smaller Than or Equal to 12";
+    }
+  
+    if (val <= 24) {  
+      return "Smaller Than or Equal to 24";
+    }
+  
+    return "More Than 24";
+  }
+  
+  testLessOrEqual(10);
+  
+
+//   Comparisons with the Logical And Operator
+// Sometimes you will need to test more than one thing at a time. The logical and operator (&&) returns true if and only if the operands to the left and right of it are true.
+
+// The same effect could be achieved by nesting an if statement inside another if:
+
+// if (num > 5) {
+//   if (num < 10) {
+//     return "Yes";
+//   }
+// }
+// return "No";
+// will only return "Yes" if num is greater than 5 and less than 10. The same logic can be written as:
+
+// if (num > 5 && num < 10) {
+//   return "Yes";
+// }
+// return "No";
+// Replace the two if statements with one statement, using the && operator, which will return "Yes" if val is less than or equal to 50 and greater than or equal to 25. Otherwise, will return "No".
+
+function testLogicalAnd(val) {  
+    if (val <= 50 && val >= 25) {
+        return "Yes";
+      }
+    
+    return "No";
+  }
+  
+  testLogicalAnd(10);
+  
+//   Comparisons with the Logical Or Operator
+// The logical or operator (||) returns true if either of the operands is true. Otherwise, it returns false.
+
+// The logical or operator is composed of two pipe symbols: (||). This can typically be found between your Backspace and Enter keys.
+
+// The pattern below should look familiar from prior waypoints:
+
+// if (num > 10) {
+//   return "No";
+// }
+// if (num < 5) {
+//   return "No";
+// }
+// return "Yes";
+// will return "Yes" only if num is between 5 and 10 (5 and 10 included). The same logic can be written as:
+
+// if (num > 10 || num < 5) {
+//   return "No";
+// }
+// return "Yes";
+// Combine the two if statements into one statement which returns "Outside" if val is not between 10 and 20, inclusive. Otherwise, return "Inside".
+
+function testLogicalOr(val) {  
+    if (val > 20 || val < 10) {
+      return "Outside";
+    
+    }
+        return "Inside";
+  }
+
+   testLogicalOr(15);
+
+
+//   Introducing Else Statements
+// When a condition for an if statement is true, the block of code following it is executed. What about when that condition is false? Normally nothing would happen. With an else statement, an alternate block of code can be executed.
+
+// if (num > 10) {
+//   return "Bigger than 10";
+// } else {
+//   return "10 or Less";
+// }
+// Combine the if statements into a single if/else statement.
+
+function testElse(val) {
+    var result = "";
+  
+    if (val > 5) {
+      result = "Bigger than 5";
+    } else { 
+      result = "5 or Smaller"
+    }
+    
+    return result;
+  }
+  
+  testElse(4);
+  
+//   Introducing Else If Statements
+// If you have multiple conditions that need to be addressed, you can chain if statements together with else if statements.
+
+// if (num > 15) {
+//   return "Bigger than 15";
+// } else if (num < 5) {
+//   return "Smaller than 5";
+// } else {
+//   return "Between 5 and 15";
+// }
+// Convert the logic to use else if statements.
+
+function testElseIf(val) {
+    if (val > 10) {
+      return "Greater than 10";
+    } else if ( val < 5) {
+      return "Smaller than 5"
+    } else {}
+    return "Between 5 and 10";
+  }
+  
+  testElseIf(7);
+
+  
+//   Logical Order in If Else Statements
+// Order is important in if, else if statements.
+
+// The function is executed from top to bottom so you will want to be careful of what statement comes first.
+
+// Take these two functions as an example.
+
+// Here's the first:
+
+// function foo(x) {
+//   if (x < 1) {
+//     return "Less than one";
+//   } else if (x < 2) {
+//     return "Less than two";
+//   } else {
+//     return "Greater than or equal to two";
+//   }
+// }
+// And the second just switches the order of the statements:
+
+// function bar(x) {
+//   if (x < 2) {
+//     return "Less than two";
+//   } else if (x < 1) {
+//     return "Less than one";
+//   } else {
+//     return "Greater than or equal to two";
+//   }
+// }
+// While these two functions look nearly identical if we pass a number to both we get different outputs.
+
+// foo(0) // "Less than one"
+// bar(0) // "Less than two"
+// Change the order of logic in the function so that it will return the correct statements in all cases.
+
+function orderMyLogic(val) {
+    if (val < 5) {
+      return "Less than 5";
+    } else if (val < 10) {
+      return "Less than 10";
+    } else {
+      return "Greater than or equal to 10";
+    }
+  }
+  
+  orderMyLogic(7);
+
+  
+//   Chaining If Else Statements
+//   if/else statements can be chained together for complex logic. Here is pseudocode of multiple chained if / else if statements:
+  
+//   if (condition1) {
+//     statement1
+//   } else if (condition2) {
+//     statement2
+//   } else if (condition3) {
+//     statement3
+//   . . .
+//   } else {
+//     statementN
+//   }
+//   Write chained if/else if statements to fulfill the following conditions:
+  
+//   num < 5 - return "Tiny"
+//   num < 10 - return "Small"
+//   num < 15 - return "Medium"
+//   num < 20 - return "Large"
+//   num >= 20 - return "Huge"
+
+function testSize(num) {
+    if (num < 5) {
+      return "Tiny"
+    } else if (num < 10) {
+      return "Small"
+    } else if (num < 15) {
+      return "Medium"
+    } else if (num < 20) {
+      return "Large"
+    } else if (num >= 20) {
+      return "Huge"
+    }
+  }
+  
+  testSize(7);
+
+//   Golf Code
+// In the game of golf each hole has a par meaning the average number of strokes a golfer is expected to make in order to sink the ball in a hole to complete the play. Depending on how far above or below par your strokes are, there is a different nickname.
+
+// Your function will be passed par and strokes arguments. Return the correct string according to this table which lists the strokes in order of priority; top (highest) to bottom (lowest):
+
+// Strokes	Return
+// 1	"Hole-in-one!"
+// <= par - 2	"Eagle"
+// par - 1	"Birdie"
+// par	"Par"
+// par + 1	"Bogey"
+// par + 2	"Double Bogey"
+// >= par + 3	"Go Home!"
+// par and strokes will always be numeric and positive. We have added an array of all the names for your convenience.
+  
+var names = ["Hole-in-one!", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey", "Go Home!"];
+
+function golfScore(par, strokes) {
+  if (strokes == 1) {
+    return names[0];
+  } else if (strokes <= par - 2) {
+    return names[1];
+  } else if (strokes == par - 1) {
+    return names[2];
+  } else if (strokes == par) {
+    return names[3];
+  } else if (strokes == par + 1) {
+    return names[4];
+  } else if (strokes == par + 2) {
+    return names[5];
+  } else {
+    return names[6];
+  }
+
+}
+
+golfScore(5, 4);
+
+// Selecting from Many Options with Switch Statements
+// If you have many options to choose from, use a switch statement. A switch statement tests a value and can have many case statements which define various possible values. Statements are executed from the first matched case value until a break is encountered.
+
+// Here is an example of a switch statement:
+
+// switch(lowercaseLetter) {
+//   case "a":
+//     console.log("A");
+//     break;
+//   case "b":
+//     console.log("B");
+//     break;
+// }
+// case values are tested with strict equality (===). The break tells JavaScript to stop executing statements. If the break is omitted, the next statement will be executed.
+
+// Write a switch statement which tests val and sets answer for the following conditions:
+// 1 - "alpha"
+// 2 - "beta"
+// 3 - "gamma"
+// 4 - "delta"
+
+
+function caseInSwitch(val) {
+    var answer = "";
+    switch(val) {
+      case 1:
+        return "alpha";
+        break;
+      case 2:
+        return "beta";
+        break;
+      case 3:
+        return "gamma";
+        break;
+      case 4:
+        return "delta";
+        break;
+    }
+
+    return answer;
+  }
+  
+  caseInSwitch(1);
+  
+
+//   Adding a Default Option in Switch Statements
+// In a switch statement you may not be able to specify all possible values as case statements. Instead, you can add the default statement which will be executed if no matching case statements are found. Think of it like the final else statement in an if/else chain.
+
+// A default statement should be the last case.
+
+// switch (num) {
+//   case value1:
+//     statement1;
+//     break;
+//   case value2:
+//     statement2;
+//     break;
+// ...
+//   default:
+//     defaultStatement;
+//     break;
+// }
+// Write a switch statement to set answer for the following conditions:
+// "a" - "apple"
+// "b" - "bird"
+// "c" - "cat"
+// default - "stuff"
