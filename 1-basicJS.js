@@ -1516,3 +1516,340 @@ var drinkValue = testObj["the drink"];
 
 // Use the playerNumber variable to look up player 16 in testObj using bracket notation. Then assign that name to the player variable.
 
+var testObj = {
+  12: "Namath",
+  16: "Montana",
+  19: "Unitas"
+};
+var playerNumber = 16;       
+var player = testObj[playerNumber];
+
+// Updating Object Properties
+// After you've created a JavaScript object, you can update its properties at any time just like you would update any other variable. You can use either dot or bracket notation to update.
+
+// For example, let's look at ourDog:
+
+// var ourDog = {
+//   "name": "Camper",
+//   "legs": 4,
+//   "tails": 1,
+//   "friends": ["everything!"]
+// };
+// Since he's a particularly happy dog, let's change his name to "Happy Camper". Here's how we update his object's name property: ourDog.name = "Happy Camper"; or ourDog["name"] = "Happy Camper"; Now when we evaluate ourDog.name, instead of getting "Camper", we'll get his new name, "Happy Camper".
+
+// Update the myDog object's name property. Let's change her name from "Coder" to "Happy Coder". You can use either dot or bracket notation.
+
+var myDog = {
+  "name": "Coder",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["freeCodeCamp Campers"]
+};
+
+myDog.name = "Happy Coder";
+
+// Add New Properties to a JavaScript Object
+// You can add new properties to existing JavaScript objects the same way you would modify them.
+
+// Here's how we would add a "bark" property to ourDog:
+
+// ourDog.bark = "bow-wow";
+
+// or
+
+// ourDog["bark"] = "bow-wow";
+
+// Now when we evaluate ourDog.bark, we'll get his bark, "bow-wow".
+
+// Example:
+
+// var ourDog = {
+//   "name": "Camper",
+//   "legs": 4,
+//   "tails": 1,
+//   "friends": ["everything!"]
+// };
+
+// ourDog.bark = "bow-wow";
+// Add a "bark" property to myDog and set it to a dog sound, such as "woof". You may use either dot or bracket notation.
+
+var myDog = {
+  "name": "Happy Coder",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["freeCodeCamp Campers"]
+};
+
+myDog.bark = "woof";
+
+// Delete Properties from a JavaScript Object
+// We can also delete properties from objects like this:
+
+// delete ourDog.bark;
+
+// Example:
+
+// var ourDog = {
+//   "name": "Camper",
+//   "legs": 4,
+//   "tails": 1,
+//   "friends": ["everything!"],
+//   "bark": "bow-wow"
+// };
+
+// delete ourDog.bark;
+// After the last line shown above, ourDog looks like:
+
+// {
+//   "name": "Camper",
+//   "legs": 4,
+//   "tails": 1,
+//   "friends": ["everything!"]
+// }
+// Delete the "tails" property from myDog. You may use either dot or bracket notation.
+
+var myDog = {
+  "name": "Happy Coder",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["freeCodeCamp Campers"],
+  "bark": "woof"
+};
+
+delete myDog.tails;
+
+// Using Objects for Lookups
+// Objects can be thought of as a key/value storage, like a dictionary. If you have tabular data, you can use an object to "lookup" values rather than a switch statement or an if/else chain. This is most useful when you know that your input data is limited to a certain range.
+
+// Here is an example of a simple reverse alphabet lookup:
+
+// var alpha = {
+//   1:"Z",
+//   2:"Y",
+//   3:"X",
+//   4:"W",
+//   ...
+//   24:"C",
+//   25:"B",
+//   26:"A"
+// };
+// alpha[2]; // "Y"
+// alpha[24]; // "C"
+
+// var value = 2;
+// alpha[value]; // "Y"
+// Convert the switch statement into an object called lookup. Use it to look up val and assign the associated string to the result variable.
+
+function phoneticLookup(val) {
+var result = "";
+
+var lookup = {
+    "alpha": "Adams",
+    "bravo": "Boston",
+    "charlie": "Chicago",
+    "delta": "Denver",
+    "echo": "Easy",
+    "foxtrot": "Frank",
+  };
+
+return lookup[val]
+return result;
+
+};
+
+// Testing Objects for Properties
+// Sometimes it is useful to check if the property of a given object exists or not. We can use the .hasOwnProperty(propname) method of objects to determine if that object has the given property name. .hasOwnProperty() returns true or false if the property is found or not.
+
+// Example
+
+// var myObj = {
+//   top: "hat",
+//   bottom: "pants"
+// };
+// myObj.hasOwnProperty("top");    // true
+// myObj.hasOwnProperty("middle"); // false
+// Modify the function checkObj to test if an object passed to the function (obj) contains a specific property (checkProp). If the property is found, return that property's value. If not, return "Not Found".
+
+// phoneticLookup("charlie");
+
+function checkObj(obj, checkProp) {
+  if (obj.hasOwnProperty(checkProp)) {
+    return obj[checkProp];
+  } else {
+    return "Not Found"
+  }
+
+}
+
+// Manipulating Complex Objects
+// Sometimes you may want to store data in a flexible Data Structure. A JavaScript object is one way to handle flexible data. They allow for arbitrary combinations of strings, numbers, booleans, arrays, functions, and objects.
+
+// Here's an example of a complex data structure:
+
+// var ourMusic = [
+//   {
+//     "artist": "Daft Punk",
+//     "title": "Homework",
+//     "release_year": 1997,
+//     "formats": [ 
+//       "CD", 
+//       "Cassette", 
+//       "LP"
+//     ],
+//     "gold": true
+//   }
+// ];
+// This is an array which contains one object inside. The object has various pieces of metadata about an album. It also has a nested "formats" array. If you want to add more album records, you can do this by adding records to the top level array. Objects hold data in a property, which has a key-value format. In the example above, "artist": "Daft Punk" is a property that has a key of "artist" and a value of "Daft Punk". JavaScript Object Notation or JSON is a related data interchange format used to store data.
+
+// {
+//   "artist": "Daft Punk",
+//   "title": "Homework",
+//   "release_year": 1997,
+//   "formats": [ 
+//     "CD",
+//     "Cassette",
+//     "LP"
+//   ],
+//   "gold": true
+// }
+// Note
+// You will need to place a comma after every object in the array, unless it is the last object in the array.
+
+// Add a new album to the myMusic array. Add artist and title strings, release_year number, and a formats array of strings.
+
+var myMusic = [
+  {
+    "artist": "Billy Joel",
+    "title": "Piano Man",
+    "release_year": 1973,
+    "formats": [
+      "CD",
+      "8T",
+      "LP"
+    ],
+    "gold": true
+  },
+  
+  {
+    "artist": "Aerosmith",
+    "title": "Nine Lives",
+    "release_year": 1997,
+    "formats": [
+      "CD",
+      "9T",
+      "LP"
+ ],
+  }
+]
+
+// Accessing Nested Objects
+// The sub-properties of objects can be accessed by chaining together the dot or bracket notation.
+
+// Here is a nested object:
+
+// var ourStorage = {
+//   "desk": {
+//     "drawer": "stapler"
+//   },
+//   "cabinet": {
+//     "top drawer": { 
+//       "folder1": "a file",
+//       "folder2": "secrets"
+//     },
+//     "bottom drawer": "soda"
+//   }
+// };
+
+// ourStorage.cabinet["top drawer"].folder2;  // "secrets"
+// ourStorage.desk.drawer; // "stapler"
+
+// Access the myStorage object and assign the contents of the glove box property to the gloveBoxContents variable. Use dot notation for all properties where possible, otherwise use bracket notation.
+
+// Setup
+var myStorage = {
+  "car": {
+    "inside": {
+      "glove box": "maps",
+      "passenger seat": "crumbs"
+     },
+    "outside": {
+      "trunk": "jack"
+    }
+  }
+};
+
+var gloveBoxContents = myStorage.car.inside["glove box"];
+
+// Accessing Nested Arrays
+// As we have seen in earlier examples, objects can contain both nested objects and nested arrays. Similar to accessing nested objects, Array bracket notation can be chained to access nested arrays.
+
+// Here is an example of how to access a nested array:
+
+// var ourPets = [
+//   {
+//     animalType: "cat",
+//     names: [
+//       "Meowzer",
+//       "Fluffy",
+//       "Kit-Cat"
+//     ]
+//   },
+//   {
+//     animalType: "dog",
+//     names: [
+//       "Spot",
+//       "Bowser",
+//       "Frankie"
+//     ]
+//   }
+// ];
+// ourPets[0].names[1]; // "Fluffy"
+// ourPets[1].names[0]; // "Spot"
+// Retrieve the second tree from the variable myPlants using object dot and array bracket notation.
+
+var myPlants = [
+  {
+    type: "flowers",
+    list: [
+      "rose",
+      "tulip",
+      "dandelion"
+    ]
+  },
+  {
+    type: "trees",
+    list: [
+      "fir",
+      "pine",
+      "birch"
+    ]
+  }
+];
+
+var secondTree = myPlants[1].list[1]; 
+
+// Record Collection
+// You are given a JSON object representing a part of your musical album collection. Each album has several properties and a unique id number as its key. Not all albums have complete information.
+
+// Write a function which takes an album's id (like 2548), a property prop (like "artist" or "tracks"), and a value (like "Addicted to Love") to modify the data in this collection.
+
+// If prop isn't "tracks" and value isn't empty (""), update or set the value for that record album's property.
+
+// Your function must always return the entire collection object.
+
+// There are several rules for handling incomplete data:
+
+// If prop is "tracks" but the album doesn't have a "tracks" property, create an empty array before adding the new value to the album's corresponding property.
+
+// If prop is "tracks" and value isn't empty (""), push the value onto the end of the album's existing tracks array.
+
+// If value is empty (""), delete the given prop property from the album.
+
+// Hints
+// Use bracket notation when accessing object properties with variables.
+
+// The `push` array method will be helpful here. Check out our Manipulate Arrays With push() challenge to review how it works.
+
+// You may refer back to Manipulating Complex Objects Introducing JavaScript Object Notation (JSON) for a refresher.
+
+
