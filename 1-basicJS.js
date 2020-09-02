@@ -1852,4 +1852,478 @@ var secondTree = myPlants[1].list[1];
 
 // You may refer back to Manipulating Complex Objects Introducing JavaScript Object Notation (JSON) for a refresher.
 
+// Setup
+
+/* Explanation for the resolutionL:
+Problem Explanation
+You are given a JSON object representing (a small part of) your record collection. Each album is identified by a unique id number and has several properties. Not all albums have complete information.
+
+Write a function which takes an id, a property (prop), and a value.
+
+For the given id in collection:
+
+If value is non-blank (value !== “”), then update or set the value for the prop.
+
+If the prop is “tracks” and value is non-blank, check to see if the given element in the array has the property of “tracks”. If the element has the property of “tracks”, push the value onto the end of the “tracks” array. If the element does not have the property, create the property and value pair.
+
+If value is blank, delete that prop.
+
+Always return the entire collection object.
+
+Change the code below // Only change code below this line and up to // Alter values below to test your code.
+Take note that you are editing the inside of the updateRecords function.
+For the given id parameter, which is associated to the collection object:
+If the value parameter isn’t an empty string, update (or set) the value parameter for the prop parameter.
+If the prop parameter is equal to "tracks" and the value isn’t an empty string, push the value onto the end of the tracks array.
+If value is an empty string, delete that prop from the object.
+Finally, return the collection object.
+Hints
+Hint 1
+Use an else if statement to check the needed steps.
+
+Hint 2
+The second step listed in the instructions should be first in your else if statement.
+
+Hint 3
+To access the value of a key in this object, you will use collection[id][prop].
+*/
+
+var collection = {
+  2548: {
+    album: "Slippery When Wet",
+    artist: "Bon Jovi",
+    tracks: [
+      "Let It Rock",
+      "You Give Love a Bad Name"
+    ]
+  },
+  2468: {
+    album: "1999",
+    artist: "Prince",
+    tracks: [
+      "1999",
+      "Little Red Corvette"
+    ]
+  },
+  1245: {
+    artist: "Robert Palmer",
+    tracks: [ ]
+  },
+  5439: {
+    album: "ABBA Gold"
+  }
+};
+
+function updateRecords(id, prop, value) {
+  if (value === "") {
+    delete collection[id][prop];
+  } else if (prop === "tracks") {
+    collection[id][prop] = collection[id][prop] || [];
+    collection[id][prop].push(value);
+  } else {
+    collection[id][prop] = value;
+  }
+
+  return collection;
+}
+
+/* 
+Iterate with JavaScript While Loops
+You can run the same code multiple times by using a loop.
+
+The first type of loop we will learn is called a while loop because it runs "while" a specified condition is true and stops once that condition is no longer true.
+
+var ourArray = [];
+var i = 0;
+while(i < 5) {
+  ourArray.push(i);
+  i++;
+}
+In the code example above, the while loop will execute 5 times and append the numbers 0 through 4 to ourArray.
+
+Let's try getting a while loop to work by pushing values to an array.
+
+Add the numbers 5 through 0 (inclusive) in descending order to myArray using a while loop.
+*/
+
+var myArray = [];
+var i = 5;
+while (i  >= 0) {
+  myArray.push(i);
+  i--;
+}
+
+// Iterate with JavaScript For Loops
+// You can run the same code multiple times by using a loop.
+
+// The most common type of JavaScript loop is called a for loop because it runs "for" a specific number of times.
+
+// For loops are declared with three optional expressions separated by semicolons:
+
+// for ([initialization]; [condition]; [final-expression])
+
+// The initialization statement is executed one time only before the loop starts. It is typically used to define and setup your loop variable.
+
+// The condition statement is evaluated at the beginning of every loop iteration and will continue as long as it evaluates to true. When condition is false at the start of the iteration, the loop will stop executing. This means if condition starts as false, your loop will never execute.
+
+// The final-expression is executed at the end of each loop iteration, prior to the next condition check and is usually used to increment or decrement your loop counter.
+
+// In the following example we initialize with i = 0 and iterate while our condition i < 5 is true. We'll increment i by 1 in each loop iteration with i++ as our final-expression.
+
+// var ourArray = [];
+// for (var i = 0; i < 5; i++) {
+//   ourArray.push(i);
+// }
+// ourArray will now contain [0,1,2,3,4].
+
+// Use a for loop to work to push the values 1 through 5 onto myArray.
+
+
+var myArray = [];
+for (var i = 1; i <= 5; i++) {
+  myArray.push(i);
+}
+
+// Iterate Odd Numbers With a For Loop
+// For loops don't have to iterate one at a time. By changing our final-expression, we can count by even numbers.
+
+// We'll start at i = 0 and loop while i < 10. We'll increment i by 2 each loop with i += 2.
+
+// var ourArray = [];
+// for (var i = 0; i < 10; i += 2) {
+//   ourArray.push(i);
+// }
+// ourArray will now contain [0,2,4,6,8]. Let's change our initialization so we can count by odd numbers.
+
+// Push the odd numbers from 1 through 9 to myArray using a for loop.
+
+var myArray = [];
+for (var i = 1; i <= 9; i += 2) {
+  myArray.push(i);
+}
+
+// Count Backwards With a For Loop
+// A for loop can also count backwards, so long as we can define the right conditions.
+
+// In order to count backwards by twos, we'll need to change our initialization, condition, and final-expression.
+
+// We'll start at i = 10 and loop while i > 0. We'll decrement i by 2 each loop with i -= 2.
+
+// var ourArray = [];
+// for (var i = 10; i > 0; i -= 2) {
+//   ourArray.push(i);
+// }
+// ourArray will now contain [10,8,6,4,2]. Let's change our initialization and final-expression so we can count backward by twos by odd numbers.
+
+// Push the odd numbers from 9 through 1 to myArray using a for loop.
+
+var myArray = [];
+for (var i = 9; i > 0; i -= 2) {
+  myArray.push(i);
+}
+
+/*
+Iterate Through an Array with a For Loop
+A common task in JavaScript is to iterate through the contents of an array. One way to do that is with a for loop. This code will output each element of the array arr to the console:
+
+var arr = [10, 9, 8, 7, 6];
+for (var i = 0; i < arr.length; i++) {
+   console.log(arr[i]);
+}
+Remember that arrays have zero-based indexing, which means the last index of the array is length - 1. Our condition for this loop is i < arr.length, which stops the loop when i is equal to length. In this case the last iteration is i === 4 i.e. when i becomes equal to arr.length and outputs 6 to the console.
+
+Declare and initialize a variable total to 0. Use a for loop to add the value of each element of the myArr array to total.
+
+HINT EXPLANATION
+Hints
+Hint 1
+Remember the structure of a for loop:
+for ([initialization]; [condition]; [final-expression]) statement
+
+The [initialization] part is executed only once (the first time).
+The [condition] is checked on every iteration.
+The [final-expression] is executed along the statement if [condition] resolves to true.
+
+Hint 2
+Remember how accumulators work:
+var x += i
+
+The variable x is going to act as the accumulator.
+The variable i is the one which value will be stored (and accumulated) inside x
+The expression += is an just abreviation of x = x + i
+
+*/
+
+var total = 0;
+for (var i = 0; i < myArr.length; i++) {
+  total += myArr[i];
+}
+ 
+/*
+Code Explanation
+Inititialization: i gets a value of 0 and its used as a counter.
+Condition: the subsequent code is executed as long as i is lower than the length of myArr (which is 5; five numbers but arrays are zero based).
+Final-expression: i is incremented by 1.
+Statement: The function adds myArr[i]'s value to total until the condition isn’t met like so:
+total + myArr[0] -> 0 + 2 = 2 
+total + myArr[1] -> 2 + 3 = 5
+total + myArr[2] -> 5 + 4 = 9
+total + myArr[3] -> 9 + 5 = 14 
+total + myArr[4] -> 14 + 6 = 20 
+*/
+
+
+/* ANOTHER SOLUTION (which kinda makes more sense)
+*/
+for (var y = myArr.length - 1; y >= 0; y--) {
+  total += myArr[y];
+}
+
+/*
+Code Explanation
+This works similarly to the last solution but it’s faster1 although it might not meet your requirements if order is important.
+
+Initialization: y gets the myArr.length's value once so the function doesn’t need to check it at condition every time the loop is executed.
+Condition: the loop is executed as long as y is greater than 0.
+Final-expression: y is decremented by 1.
+Statement: The function adds myArr[y]'s value to total until the condition isn’t met like so:
+total + myArr[4] -> 0 + 6 = 6
+total + myArr[3] -> 6 + 5 = 11
+total + myArr[2] -> 11 + 4 = 15
+total + myArr[1] -> 15 + 3 = 18
+total + myArr[0] -> 18 + 2 = 20
+*/
+
+// Nesting For Loops
+// If you have a multi-dimensional array, you can use the same logic as the prior waypoint to loop through both the array and any sub-arrays. Here is an example:
+
+// var arr = [
+//   [1,2], [3,4], [5,6]
+// ];
+// for (var i=0; i < arr.length; i++) {
+//   for (var j=0; j < arr[i].length; j++) {
+//     console.log(arr[i][j]);
+//   }
+// }
+// This outputs each sub-element in arr one at a time. Note that for the inner loop, we are checking the .length of arr[i], since arr[i] is itself an array.
+
+// Modify function multiplyAll so that it returns the product of all the numbers in the sub-arrays of arr.
+
+function multiplyAll(arr) {
+  var product = 1;
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr[i].length; j++) {
+      product = product * arr[i][j];
+    }
+  }
+  return product;
+}
+
+multiplyAll([[1, 2], [3, 4], [5, 6, 7]]);
+
+/* Code Explanation
+We check the length of arr in the i for loop and the arr[i] length in the j for loop.
+We multiply the product variable by itself because it equals 1, and then multiply it by the sub-arrays.
+The two sub-arrays to multiply are arr[i] and j.
+*/
+
+
+/* 
+Difference Between while and do...while Loop
+The while loop differs from the do-while loop in one important way — with a while loop, the condition to be evaluated is tested at the beginning of each loop iteration, so if the conditional expression evaluates to false, the loop will never be executed.
+
+With a do-while loop, on the other hand, the loop will always be executed once even if the conditional expression evaluates to false, because unlike the while loop, the condition is evaluated at the end of the loop iteration rather than the beginning.
+
+*/
+
+
+
+
+
+
+
+// Iterate with JavaScript Do...While Loops
+// The next type of loop you will learn is called a do...while loop. It is called a do...while loop because it will first do one pass of the code inside the loop no matter what, and then continue to run the loop while the specified condition evaluates to true.
+
+// var ourArray = [];
+// var i = 0;
+// do {
+//   ourArray.push(i);
+//   i++;
+// } while (i < 5);
+// The example above behaves similar to other types of loops, and the resulting array will look like [0, 1, 2, 3, 4]. However, what makes the do...while different from other loops is how it behaves when the condition fails on the first check. Let's see this in action: Here is a regular while loop that will run the code in the loop as long as i < 5:
+
+// var ourArray = []; 
+// var i = 5;
+// while (i < 5) {
+//   ourArray.push(i);
+//   i++;
+// }
+// In this example, we initialize the value of ourArray to an empty array and the value of i to 5. When we execute the while loop, the condition evaluates to false because i is not less than 5, so we do not execute the code inside the loop. The result is that ourArray will end up with no values added to it, and it will still look like [] when all of the code in the example above has completed running. Now, take a look at a do...while loop:
+
+// var ourArray = []; 
+// var i = 5;
+// do {
+//   ourArray.push(i);
+//   i++;
+// } while (i < 5);
+// In this case, we initialize the value of i to 5, just like we did with the while loop. When we get to the next line, there is no condition to evaluate, so we go to the code inside the curly braces and execute it. We will add a single element to the array and then increment i before we get to the condition check. When we finally evaluate the condition i < 5 on the last line, we see that i is now 6, which fails the conditional check, so we exit the loop and are done. At the end of the above example, the value of ourArray is [5]. Essentially, a do...while loop ensures that the code inside the loop will run at least once. Let's try getting a do...while loop to work by pushing values to an array.
+
+// Change the while loop in the code to a do...while loop so the loop will push only the number 10 to myArray, and i will be equal to 11 when your code has finished running.
+
+var myArray = [];
+var i = 10;
+
+do {
+  myArray.push(i);
+  i++;
+} while (i <= 10);
+
+// Replace Loops using Recursion
+// Recursion is the concept that a function can be expressed in terms of itself. To help understand this, start by thinking about the following task: multiply the first n elements of an array to create the product of those elements. Using a for loop, you could do this:
+
+//   function multiply(arr, n) {
+//     var product = 1;
+//     for (var i = 0; i < n; i++) {
+//         product *= arr[i];
+//     }
+//     return product;
+//   }
+// However, notice that multiply(arr, n) == multiply(arr, n - 1) * arr[n - 1]. That means you can rewrite multiply in terms of itself and never need to use a loop.
+
+//   function multiply(arr, n) {
+//     if (n <= 0) {
+//       return 1;
+//     } else {
+//       return multiply(arr, n - 1) * arr[n - 1];
+//     }
+//   }
+// The recursive version of multiply breaks down like this. In the base case, where n <= 0, it returns 1. For larger values of n, it calls itself, but with n - 1. That function call is evaluated in the same way, calling multiply again until n <= 0. At this point, all the functions can return and the original multiply returns the answer.
+
+// Note: Recursive functions must have a base case when they return without calling the function again (in this example, when n <= 0), otherwise they can never finish executing.
+
+// Write a recursive function, sum(arr, n), that returns the sum of the first n elements of an array arr.
+
+
+function sum(arr, n) {
+  // Only change code below this line
+if (n <= 0) {
+  return 0;
+} else { 
+  return sum(arr, n-1) + arr[n-1];
+}
+  // Only change code above this line
+}
+
+
+// Profile Lookup
+// We have an array of objects representing different people in our contacts lists.
+
+// A lookUpProfile function that takes name and a property (prop) as arguments has been pre-written for you.
+
+// The function should check if name is an actual contact's firstName and the given property (prop) is a property of that contact.
+
+// If both are true, then return the "value" of that property.
+
+// If name does not correspond to any contacts then return "No such contact".
+
+// If prop does not correspond to any valid properties of a contact found to match name then return "No such property".
+
+
+// Setup
+var contacts = [
+  {
+      "firstName": "Akira",
+      "lastName": "Laine",
+      "number": "0543236543",
+      "likes": ["Pizza", "Coding", "Brownie Points"]
+  },
+  {
+      "firstName": "Harry",
+      "lastName": "Potter",
+      "number": "0994372684",
+      "likes": ["Hogwarts", "Magic", "Hagrid"]
+  },
+  {
+      "firstName": "Sherlock",
+      "lastName": "Holmes",
+      "number": "0487345643",
+      "likes": ["Intriguing Cases", "Violin"]
+  },
+  {
+      "firstName": "Kristian",
+      "lastName": "Vos",
+      "number": "unknown",
+      "likes": ["JavaScript", "Gaming", "Foxes"]
+  }
+];
+
+
+function lookUpProfile(name, prop){
+for (var x = 0; x < contacts.length; x++) {
+  if (contacts[x].firstName === name) {
+    if (contacts[x].hasOwnProperty(prop)) {
+      return contacts[x][prop];
+    } else {
+      return "No such property";
+    }
+  }
+}
+return "No such contact";
+}
+
+lookUpProfile("Akira", "likes");
+
+
+// Generate Random Fractions with JavaScript
+// Random numbers are useful for creating random behavior.
+
+// JavaScript has a Math.random() function that generates a random decimal number between 0 (inclusive) and not quite up to 1 (exclusive). Thus Math.random() can return a 0 but never quite return a 1
+
+// Note
+// Like Storing Values with the Equal Operator, all function calls will be resolved before the return executes, so we can return the value of the Math.random() function.
+
+// Change randomFraction to return a random number instead of returning 0.
+
+var result = 0;
+  // Math.random() can generate 0. We don't want to     return a 0,
+  // so keep generating random numbers until we get one     that isn't 0
+  while (result === 0) {
+    result = Math.random();
+  }
+  return result;
+  
+
+//   Generate Random Whole Numbers with JavaScript
+// It's great that we can generate random decimal numbers, but it's even more useful if we use it to generate random whole numbers.
+
+// Use Math.random() to generate a random decimal.
+// Multiply that random decimal by 20.
+// Use another function, Math.floor() to round the number down to its nearest whole number.
+// Remember that Math.random() can never quite return a 1 and, because we're rounding down, it's impossible to actually get 20. This technique will give us a whole number between 0 and 19.
+
+// Putting everything together, this is what our code looks like:
+
+// Math.floor(Math.random() * 20);
+
+// We are calling Math.random(), multiplying the result by 20, then passing the value to Math.floor() function to round the value down to the nearest whole number.
+
+// Use this technique to generate and return a random whole number between 0 and 9.
+
+
+function randomWholeNum() {
+  return Math.floor(Math.random() * 10);
+}
+
+/*Generate Random Whole Numbers within a Range
+Instead of generating a random whole number between zero and a given number like we did before, we can generate a random whole number that falls within a range of two specific numbers.
+
+To do this, we'll define a minimum number min and a maximum number max.
+
+Here's the formula we'll use. Take a moment to read it and try to understand what this code is doing:
+
+Math.floor(Math.random() * (max - min + 1)) + min
+
+Create a function called randomRange that takes a range myMin and myMax and returns a random whole number that's greater than or equal to myMin, and is less than or equal to myMax, inclusive.
+*/
 
